@@ -50,7 +50,6 @@ export async function getLink(code: string): Promise<LinkRecord | null> {
     "SELECT * FROM links WHERE code = $1 LIMIT 1",
     [code]
   );
-  console.log(rows,"anan")
   return rows.length ? mapRow(rows[0]) : null;
 }
 
@@ -74,8 +73,8 @@ export async function createLink(
 }
 
 export async function deleteLink(code: string): Promise<boolean> {
-  const { rowCount } = await query("DELETE FROM links WHERE code = $1", [code]);
-  return rowCount > 0;
+  const { rowCount } = await query<LinkRow>("DELETE FROM links WHERE code = $1", [code]);
+  return rowCount ? rowCount > 0 : false;
 }
 
 export async function incrementClick(
