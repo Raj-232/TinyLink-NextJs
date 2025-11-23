@@ -1,4 +1,4 @@
-import { Pool, type QueryResult } from "pg";
+import { Pool, QueryResultRow, type QueryResult } from "pg";
 
 const connectionString =
   process.env.DATABASE_URL ?? process.env.NEXT_PUBLIC_DATABASE_URL;
@@ -47,11 +47,11 @@ export async function ensureDatabase() {
   initialized = true;
 }
 
-export async function query<T = Record<string, unknown>>(
+export async function query<T extends QueryResultRow = Record<string, unknown>>(
   text: string,
-  params: ReadonlyArray<string | number | null> = []
+  params: readonly (string | number | null)[] = []
 ): Promise<QueryResult<T>> {
   await ensureDatabase();
-  return pool.query<T>(text, params);
+  return pool.query<T>(text, Array.from(params));
 }
 

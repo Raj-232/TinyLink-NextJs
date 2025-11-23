@@ -18,11 +18,11 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const payload = await request.json();
-    const parsed : any = createLinkSchema.safeParse(payload);
+    const parsed  = createLinkSchema.safeParse(payload);
 
     if (!parsed.success) {
       return NextResponse.json(
-        { error: parsed.error.errors[0]?.message ?? "Invalid input" },
+        { error: parsed.error.message ?? "Invalid input" },
         { status: 400 }
       );
     }
