@@ -21,8 +21,7 @@ const fetcher = (url: string) =>
   });
 
 export default function ClientDashboard() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ?? process.env.BASE_URL ?? "";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "";
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<Sort>("recent");
   const [flash, setFlash] = useState<
@@ -281,6 +280,14 @@ export default function ClientDashboard() {
                             className="rounded-full border border-slate-200 px-3 py-1 text-slate-600 transition hover:border-slate-400 hover:text-slate-900"
                           >
                             Stats
+                          </Link>
+                          <Link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`/${link.code}`}
+                            className="rounded-full border border-slate-200 px-3 py-1 text-slate-600 transition hover:border-slate-400 hover:text-slate-900"
+                          >
+                            test
                           </Link>
                           <button
                             type="button"

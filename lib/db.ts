@@ -1,7 +1,6 @@
 import { Pool, QueryResultRow, type QueryResult } from "pg";
 
-const connectionString =
-  process.env.DATABASE_URL ?? process.env.NEXT_PUBLIC_DATABASE_URL;
+const connectionString = process.env.NEXT_PUBLIC_DATABASE_URL;
 
 if (!connectionString) {
   throw new Error(
