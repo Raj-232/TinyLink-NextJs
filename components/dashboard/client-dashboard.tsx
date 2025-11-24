@@ -119,7 +119,7 @@ export default function ClientDashboard() {
             </p>
           </div>
           <Link
-            href="https://github.com/raj/tinylink"
+            href="https://github.com/Raj-232/TinyLink-NextJs.git"
             target="_blank"
             className="inline-flex items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 hover:border-slate-400 hover:text-slate-900"
           >
@@ -169,7 +169,8 @@ export default function ClientDashboard() {
                 <button
                   type="button"
                   onClick={() => setSort("clicks")}
-                  className={`rounded-full px-3 py-1 ${
+                  className={`rounded-full p
+  constx-3 py-1 ${
                     sort === "clicks"
                       ? "bg-slate-900 text-white"
                       : "text-slate-500"
